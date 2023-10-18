@@ -14,16 +14,17 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+use App\DataTables\UsersDataTable;
+
 class UserController extends Controller
 {
     /**
      * Krisnia Syahwadani 6706223087
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        $users = User::all();
-        return view("user.daftarPengguna", compact('users'));
+        return $dataTable->render('users.daftarPengguna');
     }
 
     /**
@@ -31,7 +32,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view("user.registrasi");
+        return view("users.registrasi");
     }
 
     /**
@@ -65,9 +66,9 @@ class UserController extends Controller
 
         
 
-        //Auth::login($user);
+        //Auth::login($user);`
 
-        return redirect()->route("user.daftarPengguna");
+        return redirect()->route("users.daftarPengguna");
     }
 
     /**
@@ -75,7 +76,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view("user.infoPengguna", compact('user'));
+        return view("users.infoPengguna", compact('user'));
     }
 
     /**

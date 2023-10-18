@@ -72,26 +72,26 @@
 
         <!-- Religion -->
         <div class="mt-4">
-            <x-input-label for="religion" :value="__('Agama')" />
-            <x-text-input id="religion" class="block mt-1 w-full" type="tel" name="religion"
-                :value="old('religion')" required autofocus autocomplete="religion" />
-            <x-input-error :messages="$errors->get('religion')" class="mt-2" />
+            <x-input-label for="Agama" :value="__('Agama')" />
+            <x-text-input id="Agama" class="block mt-1 w-full" type="tel" name="Agama"
+                :value="old('Agama')" required autofocus autocomplete="Agama" />
+            <x-input-error :messages="$errors->get('Agama')" class="mt-2" />
         </div>
 
          <!-- Gender -->
         <div class="mt-4">
-            <x-input-label for="gender" :value="__('Jenis Kelamin')" />
+            <x-input-label for="Jenis_Kelamin" :value="__('Jenis Kelamin')" />
 
             <div class="mt-2">
                 <label class="inline-flex items-center">
-                    <input type="radio" class="form-radio" name="gender" value="Laki-Laki"
-                        {{ old('gender') === 'Laki-Laki' ? 'checked' : '' }} required autofocus>
+                    <input type="radio" class="form-radio" name="Jenis_Kelamin" value="0"
+                        {{ old('Jenis_Kelamin') === 'Laki-Laki' ? 'checked' : '' }} required autofocus>
                     <span class="ml-2">Laki-Laki</span>
                 </label>
 
                 <label class="inline-flex items-center ml-6">
-                    <input type="radio" class="form-radio" name="gender" value="Perempuan"
-                        {{ old('gender') === 'Perempuan' ? 'checked' : '' }} required>
+                    <input type="radio" class="form-radio" name="Jenis_Kelamin" value="1"
+                        {{ old('Jenis_Kelamin') === 'Perempuan' ? 'checked' : '' }} required>
                     <span class="ml-2">Perempuan</span>
                 </label>
 

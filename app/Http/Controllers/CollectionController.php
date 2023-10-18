@@ -6,7 +6,7 @@ use App\Models\Collection;
 use App\Http\Requests\UpdateCollectionRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\DataTables\CollectionsDataTable;
 
 //Krisnia Syahwadani 6706223087
 class CollectionController extends Controller
@@ -14,18 +14,16 @@ class CollectionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(CollectionsDataTable $dataTable)
     {
-        $koleksi = Collection::all();
-        return view("koleksi.daftarKoleksi", compact('koleksi'));
+        return $dataTable->render('collections.daftarKoleksi');
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view("koleksi.registrasi");
+        return view("collections.registrasi");
     }
 
     /**
@@ -53,7 +51,7 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        return view("koleksi.infoKoleksi", compact('collection'));
+        return view("collections.infocollections", compact('collection'));
     }
 
     /**

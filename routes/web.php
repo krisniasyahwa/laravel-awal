@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,15 +31,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::get('/user', [ProfileController::class, 'index'])->name('user.daftarPengguna');
-    Route::patch('/userRegistration', [ProfileController::class, 'create'])->name('user.registrasi');
-    Route::delete('/userStore', [ProfileController::class, 'store'])->name('user.storePengguna');
-    route::delete('/userView/{user}', [ProfileController::class, 'show'])->name('user.infoPengguna');
+    Route::get('/user', [UserController::class, 'index'])->name('user.daftarPengguna');
+    Route::get('/userRegistration', [UserController::class, 'create'])->name('user.registrasi');
+    Route::post('/userStore', [UserController::class, 'store'])->name('user.storePengguna');
+    route::get('/userView/{user}', [UserController::class, 'show'])->name('user.infoPengguna');
 
-    Route::get('/koleksi', [ProfileController::class, 'index'])->name('koleksi.daftarKoleksi');
-    Route::patch('/koleksiTmbah', [ProfileController::class, 'create'])->name('koleksi.registrasi');
-    Route::delete('/koleksiStore', [ProfileController::class, 'store'])->name('koleksi.storeKoleksi');
-    route::delete('/koleksiView/{collection}', [ProfileController::class, 'show'])->name('koleksi.infoKoleksi');
+    Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.daftarKoleksi');
+    Route::get('/koleksiTmbah', [CollectionController::class, 'create'])->name('koleksi.registrasi');
+    Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.storeKoleksi');
+    route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoKoleksi');
 });
 
 require __DIR__.'/auth.php';

@@ -42,9 +42,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'address' => ['required', 'string', 'max:1000'], 
             'birthdate' => ['required', 'date'],
-            'phonenumber' => ['required', 'string', 'max:20'],
-            'religion'=> ['required', 'string', 'max:20'],
-            'gender' => ['required', 'string'],
+            'phoneNumber' => ['required', 'string', 'max:20'],
+            'Agama'=> ['required', 'string', 'max:20'],
+            'Jenis_Kelamin' => ['required', 'numeric'],
         ]);
 
         $user = User::create([
@@ -54,9 +54,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'address' => $request->address,
             'birthdate' => $request->birthdate,
-            'phonenumber' => $request->phonenumber,
-            'religion'=> $request->religion,
-            'gender' => $request->gender,
+            'phoneNumber' => $request->phoneNumber,
+            'Agama'=> $request->Agama,
+            'Jenis_Kelamin' => $request->Jenis_Kelamin,
             
             //Krisnia Syahwadani 6706223087
         ]);
